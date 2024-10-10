@@ -12,12 +12,8 @@ jobs:
     name: Deploy
     steps:
       - uses: actions/checkout@v4
-      - name: Install npm Globally
-        run: sudo apt-get install -y npm
-      - name: Install Wrangler
-        run: sudo npm install -y -g @cloudflare/wrangler
       - name: Deploy
-        uses: cloudflare/wrangler-action@v3
+        uses: cloudflare/wrangler-action@v3.9.0
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
